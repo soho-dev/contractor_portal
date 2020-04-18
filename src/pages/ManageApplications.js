@@ -95,9 +95,7 @@ class ManageApplications extends React.Component {
   }
   render() {
     const { applications, errors, isFetching } = this.props;
-    let columns = [
-      {display : 'Name', name: "first_name"}
-    ]
+    
     return (
       <div className="card-list">
         <div className="row">

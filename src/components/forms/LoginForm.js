@@ -8,7 +8,7 @@ const Error = ({children}) =>
     {children}
   </div>
 
-// eslint-disable-next-line
+
 const EMAIL_PATTERN = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 const LoginForm = ({onSubmit}) => {
@@ -35,7 +35,7 @@ const LoginForm = ({onSubmit}) => {
         <input 
           ref={
             register({
-              required: "Password is required!", 
+              required: "Please enter password.", 
               minLength: {value: 8, message: 'Minimum length of password is 8 characters!'}})}
           name="password"
           type="password"

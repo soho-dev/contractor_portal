@@ -45,11 +45,15 @@ const AuthBaseProvider = ({children, dispatch}) => {
 
   const signIn = (loginData) => {
     return loginUser(loginData)
-      .then(token => {
-        localStorage.setItem('access_token', token.access_token);
-        const decodedToken = decodeToken(token.access_token);
-        dispatch(userAuthenticated(decodedToken))
-        return token;
+      .then(res => {
+        if(res.access_token){
+          localStorage.setItem('access_token', res.access_token);
+          const decodedToken = decodeToken(res.access_token);
+          dispatch(userAuthenticated(decodedToken))
+          return res;
+        }else{
+          return {error:{title:'authFailed', detail : res.message}};
+        }
       })
   }
 

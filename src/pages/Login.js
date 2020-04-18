@@ -13,8 +13,8 @@ class Login extends React.Component {
 
   signIn = (loginData) => {
     this.props.auth.signIn(loginData)
-      .then(_ => this.setState({shouldRedirect: true}))
-      .catch(errors => this.setState({errors}))
+      .then(data => { data.error?this.setState({"errors": [data.error]}) : this.setState({shouldRedirect: true})})
+      .catch(errors => {this.setState({"errors":errors})})
   }
 
   render() {
